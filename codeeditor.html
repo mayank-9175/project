@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <title>Code Editor</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      /* root:: {
+        --bg-black-900: #f2f2fc;
+        --bg-black-100: #fdf9ff;
+        --bg-black-50: #e8dfec;
+        --text-black-900: #302e4d;
+        --text-black-700: #504e70;
+      }
+      body.dark {
+        --bg-black-900: #151515;
+        --bg-black-100: #222222;
+        --bg-black-50: #393939;
+        --text-black-900: #ffffff;
+        --text-black-700: #e9e9e9;
+      } */
+      body {
+        background: black;
+      }
+      .nav {
+        background: black;
+        width: 100%;
+        height: 100%;
+        border: 2px solid #393939;
+      }
+      h2 {
+        color: #fff;
+        margin:auto;
+      }
+      h3 {
+        color: #fdf9ff;
+        background: #151515;
+      }
+     h1{
+       color: #fff;
+       text-align:center;
+       margin-top:1rem;
+       font-family:cursive;
+     }
+      .editor {
+        margin-top: 2rem;
+        display: flex;
+        justify-content:space-evenly;
+      }
+      .output {
+        border: 2px solid black;
+        width: 100%;
+        background: #fff;
+        height: 100%;
+        margin-top:1rem;
+      }
+      .html {
+        background: #393939;
+        border: 2px solid #393939;
+        box-shadow: rgba(238, 232, 232, 0.752) 0px 3px 8px;
+      }
+      .css {
+        background: #393939;
+        border: 2px solid #393939;
+        box-shadow: rgba(238, 232, 232, 0.752) 0px 3px 8px;
+      }
+      .javascript {
+        background: #393939;
+        border: 2px solid #393939;
+        box-shadow: rgba(238, 232, 232, 0.752) 0px 3px 8px;
+      }
+      #span1 {
+        background: #393939;
+        font-size: 25px;
+        padding: 0px 20px;
+      }
+      #span2 {
+        background: #393939;
+        font-size: 25px;
+        padding: 0px 20px;
+      }
+      #span3 {
+        background: #393939;
+        font-size: 25px;
+        padding: 0px 20px;
+      }
+      .html_code {
+        background: #393939;
+        border: none;
+        outline: none;
+        color: rgb(236, 233, 12);
+      }
+      .css_code {
+        background: #393939;
+        border: none;
+        outline: none;
+        color: rgb(236, 233, 12);
+      }
+      .js_code {
+        background: #393939;
+        border: none;
+        outline: none;
+        color: rgb(236, 233, 12);
+      }
+      @media(max-width:1220px)
+      {
+        .editor {
+        display: flex;
+        flex-direction:column;
+      }
+      .css{
+        margin-top:1rem;
+      }
+      .javascript{
+        margin-top:1rem;
+      }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="nav">
+      <h2 id="h2">CODE EDITOR</h2>
+    </div>
+    <div class="editor">
+      <div class="html">
+        <h3><span id="span1">HTML</span></h3>
+        <textarea class="html_code" cols="50" rows="15"></textarea>
+      </div>
+      <div class="css">
+        <h3><span id="span2">CSS</span></h3>
+        <textarea class="css_code" cols="50" rows="15"></textarea>
+      </div>
+      <div class="javascript">
+        <h3><span id="span3">JAVASCRIPT</span></h3>
+        <textarea class="js_code" cols="50" rows="15"></textarea>
+      </div>
+    </div>
+    <h1><span>OUTPUT</span></h1>
+    <div class="output">
+      <iframe class="frame"></iframe>
+    </div>
+    <script>
+      function run() {
+        let html_code = document.querySelector(".html_code").value;
+        let css_code =
+          "<style>" + document.querySelector(".css_code").value + "</style>";
+        let js_code = document.querySelector(".js_code").value;
+        let frame = document.querySelector(".frame");
+        frame.contentDocument.body.innerHTML = html_code + css_code;
+        frame.contentWindow.eval(js_code);
+      }
+      document.querySelector(".html_code").addEventListener("keyup", run);
+      document.querySelector(".css_code").addEventListener("keyup", run);
+      document.querySelector(".js_code").addEventListener("keyup", run);
+      setInterval(()=>{
+        let h2=document.getElementById("h2");
+      let arry=["DarkRed","DarkBlue","DarkOrange","HotPink","RoyalBlue","Yellow","SpringGreen","Teal"];
+      let random=Math.floor(Math.random()*arry.length);
+      let final=arry[random];
+         h2.style.color=final;
+      },300)
+    </script>
+  </body>
+</html>
