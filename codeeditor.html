@@ -4,17 +4,6 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
-    ></script>
     <title>Code Editor</title>
     <style>
       * {
@@ -22,20 +11,6 @@
         margin: 0;
         box-sizing: border-box;
       }
-      /* root:: {
-        --bg-black-900: #f2f2fc;
-        --bg-black-100: #fdf9ff;
-        --bg-black-50: #e8dfec;
-        --text-black-900: #302e4d;
-        --text-black-700: #504e70;
-      }
-      body.dark {
-        --bg-black-900: #151515;
-        --bg-black-100: #222222;
-        --bg-black-50: #393939;
-        --text-black-900: #ffffff;
-        --text-black-700: #e9e9e9;
-      } */
       body {
         background: black;
       }
@@ -47,29 +22,29 @@
       }
       h2 {
         color: #fff;
-        margin:auto;
+        margin: auto;
       }
       h3 {
         color: #fdf9ff;
         background: #151515;
       }
-     h1{
-       color: #fff;
-       text-align:center;
-       margin-top:1rem;
-       font-family:cursive;
-     }
+      h1 {
+        color: #fff;
+        text-align: center;
+        margin-top: 1rem;
+        font-family: cursive;
+      }
       .editor {
         margin-top: 2rem;
         display: flex;
-        justify-content:space-evenly;
+        justify-content: space-evenly;
       }
       .output {
         border: 2px solid black;
         width: 100%;
         background: #fff;
         height: 100%;
-        margin-top:1rem;
+        margin-top: 1rem;
       }
       .html {
         background: #393939;
@@ -119,18 +94,17 @@
         outline: none;
         color: rgb(236, 233, 12);
       }
-      @media(max-width:1220px)
-      {
+      @media (max-width: 1220px) {
         .editor {
-        display: flex;
-        flex-direction:column;
-      }
-      .css{
-        margin-top:1rem;
-      }
-      .javascript{
-        margin-top:1rem;
-      }
+          display: flex;
+          flex-direction: column;
+        }
+        .css {
+          margin-top: 1rem;
+        }
+        .javascript {
+          margin-top: 1rem;
+        }
       }
     </style>
   </head>
@@ -169,13 +143,22 @@
       document.querySelector(".html_code").addEventListener("keyup", run);
       document.querySelector(".css_code").addEventListener("keyup", run);
       document.querySelector(".js_code").addEventListener("keyup", run);
-      setInterval(()=>{
-        let h2=document.getElementById("h2");
-      let arry=["DarkRed","DarkBlue","DarkOrange","HotPink","RoyalBlue","Yellow","SpringGreen","Teal"];
-      let random=Math.floor(Math.random()*arry.length);
-      let final=arry[random];
-         h2.style.color=final;
-      },300)
+      setInterval(() => {
+        let h2 = document.getElementById("h2");
+        let arry = [
+          "DarkRed",
+          "DarkBlue",
+          "DarkOrange",
+          "HotPink",
+          "RoyalBlue",
+          "Yellow",
+          "SpringGreen",
+          "Teal",
+        ];
+        let random = Math.floor(Math.random() * arry.length);
+        let final = arry[random];
+        h2.style.color = final;
+      }, 300);
     </script>
   </body>
 </html>
